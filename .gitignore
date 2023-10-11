@@ -1,0 +1,12 @@
+.env
+
+package-lock.json
+node_modules
+
+.idea
+*.iml
+
+.vscode
+
+.DS_Store
+.gitmessage

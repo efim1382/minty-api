@@ -12,10 +12,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test-db/", async (req, res) => {
+	console.log("Received request to /test-db/");
+
 	try {
 		const result = await query("SELECT NOW() as now");
+		console.log("Database query successful:", result.rows[0]);
 		res.json(result.rows[0]);
 	} catch (err) {
+		console.error("Error during database query:", err);
 		res.status(500).json({ error: err.message });
 	}
 });

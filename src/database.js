@@ -3,6 +3,13 @@ import { Pool } from "pg";
 
 dotenv.config();
 
+console.log("Initializing database connection with the following settings:", {
+	user: process.env.DB_USER,
+	host: process.env.DB_HOST,
+	database: process.env.DB_NAME,
+	port: process.env.DB_PORT,
+});
+
 const pool = new Pool({
 	user: process.env.DB_USER,
 	host: process.env.DB_HOST,

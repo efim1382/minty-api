@@ -1,21 +1,9 @@
 import express from "express";
-import dotenv from "dotenv";
 import { query } from "./database";
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-
-dotenv.config();
-
-const obj = {
-	user: process.env.DB_USER,
-	host: process.env.DB_HOST,
-	database: process.env.DB_NAME,
-	port: process.env.DB_PORT,
-};
-
-console.log(obj);
 
 app.get("/", (req, res) => {
 	res.json({

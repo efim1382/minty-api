@@ -20,6 +20,7 @@ console.log(obj);
 app.get("/", (req, res) => {
 	res.json({
 		message: "Hello World",
+		obj,
 	});
 });
 

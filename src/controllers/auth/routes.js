@@ -1,5 +1,5 @@
 import express from "express";
-import { register, login, getCsrfToken, logout } from "./index";
+import { register, login, logout } from "./index";
 
 const router = express.Router();
 

@@ -54,6 +54,21 @@ app.use(csurf({
 	},
 }));
 
+// app.use((req, res, next) => {
+// 	setTimeout(() => next(), 2000);
+// });
+
+app.use((error, req, res, next) => {
+	if (error.code === "EBADCSRFTOKEN") {
+		return res.status(403).json({
+			message: "Invalid CSRF token",
+			code: "invalid_csrf_token",
+		});
+	}
+
+	next(error);
+});
+
 app.use("/api", routes);
 
 app.listen(PORT, () => {

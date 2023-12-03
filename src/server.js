@@ -28,6 +28,7 @@ app.use(session({
 	store: new PgStore({
 		pool,
 		tableName: "session",
+		pruneSessionInterval: 60 * 10000,
 	}),
 
 	secret: process.env.SECRET_KEY,
@@ -43,7 +44,7 @@ app.use(session({
 
 app.use(rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
-	max: 100, // limit each IP to 100 requests per windowMs
+	max: 200, // limit each IP to 100 requests per windowMs
 }));
 
 app.use(csurf({
